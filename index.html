@@ -1,0 +1,672 @@
+<!doctype html>
+<html lang="en" class="h-full">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SmartStudy - Learn Smarter, Grow Together</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="/_sdk/element_sdk.js"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&amp;family=Nunito:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet">
+  <style>
+    body {
+      box-sizing: border-box;
+    }
+    
+    html, body {
+      height: 100%;
+      width: 100%;
+      margin: 0;
+      padding: 0;
+    }
+    
+    .app-wrapper {
+      height: 100%;
+      width: 100%;
+      overflow-y: auto;
+      overflow-x: hidden;
+    }
+    
+    .font-heading {
+      font-family: 'Cormorant Garamond', Georgia, serif;
+    }
+    
+    .font-body {
+      font-family: 'Nunito', system-ui, sans-serif;
+    }
+    
+    .gradient-bg {
+      background: linear-gradient(135deg, #fff5f7 0%, #fdf2f4 50%, #f0f7ff 100%);
+    }
+    
+    .card-shadow {
+      box-shadow: 0 4px 20px rgba(244, 114, 182, 0.08), 0 2px 8px rgba(147, 197, 253, 0.06);
+    }
+    
+    .smooth-scroll {
+      scroll-behavior: smooth;
+    }
+    
+    @keyframes float {
+      0%, 100% { transform: translateY(0px); }
+      50% { transform: translateY(-8px); }
+    }
+    
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+    
+    .animate-float {
+      animation: float 4s ease-in-out infinite;
+    }
+    
+    .animate-fade-in {
+      animation: fadeInUp 0.8s ease-out forwards;
+    }
+    
+    .delay-100 { animation-delay: 0.1s; }
+    .delay-200 { animation-delay: 0.2s; }
+    .delay-300 { animation-delay: 0.3s; }
+    .delay-400 { animation-delay: 0.4s; }
+    
+    .nav-link {
+      position: relative;
+    }
+    
+    .nav-link::after {
+      content: '';
+      position: absolute;
+      bottom: -2px;
+      left: 50%;
+      width: 0;
+      height: 2px;
+      background: linear-gradient(90deg, #f9a8d4, #93c5fd);
+      transition: all 0.3s ease;
+      transform: translateX(-50%);
+      border-radius: 2px;
+    }
+    
+    .nav-link:hover::after {
+      width: 100%;
+    }
+    
+    .feature-card {
+      transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    
+    .feature-card:hover {
+      transform: translateY(-6px);
+    }
+    
+    .testimonial-card {
+      transition: all 0.3s ease;
+    }
+    
+    .testimonial-card:hover {
+      transform: scale(1.02);
+    }
+    
+    .icon-container {
+      transition: all 0.3s ease;
+    }
+    
+    .feature-card:hover .icon-container {
+      transform: scale(1.1) rotate(5deg);
+    }
+  </style>
+  <style>@view-transition { navigation: auto; }</style>
+  <script src="/_sdk/data_sdk.js" type="text/javascript"></script>
+ </head>
+ <body class="h-full font-body">
+  <div class="app-wrapper gradient-bg smooth-scroll"><!-- Navigation -->
+   <nav class="sticky top-0 z-50 backdrop-blur-md bg-white/70 border-b border-pink-100/50">
+    <div class="max-w-6xl mx-auto px-6 py-4">
+     <div class="flex items-center justify-between"><a href="#home" class="flex items-center gap-3 group">
+       <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-pink-200 to-blue-200 flex items-center justify-center group-hover:scale-110 transition-transform">
+        <svg class="w-6 h-6 text-pink-600" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
+        </svg>
+       </div><span class="font-heading text-xl font-semibold text-gray-800">SmartStudy</span> </a>
+      <div class="hidden md:flex items-center gap-8"><a href="#home" class="nav-link text-gray-600 hover:text-pink-600 transition-colors font-medium">Home</a> <a href="#about" class="nav-link text-gray-600 hover:text-pink-600 transition-colors font-medium">About</a> <a href="#features" class="nav-link text-gray-600 hover:text-pink-600 transition-colors font-medium">Features</a> <a href="#impact" class="nav-link text-gray-600 hover:text-pink-600 transition-colors font-medium">Impact</a> <a href="#feedback" class="nav-link text-gray-600 hover:text-pink-600 transition-colors font-medium">Feedback</a> <a href="#contact" class="nav-link text-gray-600 hover:text-pink-600 transition-colors font-medium">Contact</a>
+      </div><a href="#contact" class="hidden md:inline-flex items-center gap-2 px-5 py-2.5 bg-gradient-to-r from-pink-400 to-pink-500 text-white rounded-full font-medium hover:from-pink-500 hover:to-pink-600 transition-all shadow-md hover:shadow-lg"> Get Started 
+       <svg class="w-4 h-4" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+       </svg></a>
+     </div>
+    </div>
+   </nav><!-- Hero Section -->
+   <section id="home" class="relative py-20 md:py-28 overflow-hidden">
+    <div class="absolute top-20 left-10 w-20 h-20 bg-pink-200/30 rounded-full blur-2xl"></div>
+    <div class="absolute bottom-20 right-10 w-32 h-32 bg-blue-200/30 rounded-full blur-3xl"></div>
+    <div class="absolute top-40 right-20 w-16 h-16 bg-pink-100/50 rounded-full animate-float"></div>
+    <div class="max-w-6xl mx-auto px-6">
+     <div class="grid md:grid-cols-2 gap-12 items-center">
+      <div class="animate-fade-in">
+       <div class="inline-flex items-center gap-2 px-4 py-2 bg-white/80 rounded-full shadow-sm mb-6 border border-pink-100"><span class="w-2 h-2 bg-green-400 rounded-full animate-pulse"></span> <span class="text-sm text-gray-600 font-medium">Empowering Students Worldwide</span>
+       </div>
+       <h1 id="hero-title" class="font-heading text-4xl md:text-5xl lg:text-6xl font-bold text-gray-800 leading-tight mb-6">Learn Smarter,<br><span class="bg-gradient-to-r from-pink-500 to-blue-400 bg-clip-text text-transparent">Grow Together</span></h1>
+       <p id="hero-subtitle" class="text-lg text-gray-600 mb-8 leading-relaxed max-w-lg">SmartStudy is an educational app created to support students aged 10–18 in developing better study habits in a calm and motivating way.</p>
+       <div class="flex flex-wrap gap-4"><a href="#features" class="inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-pink-400 to-pink-500 text-white rounded-full font-semibold hover:from-pink-500 hover:to-pink-600 transition-all shadow-lg hover:shadow-xl"> Explore Features 
+         <svg class="w-5 h-5" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+         </svg></a> <a href="#about" class="inline-flex items-center gap-2 px-6 py-3 bg-white text-gray-700 rounded-full font-semibold border border-pink-200 hover:border-pink-300 hover:bg-pink-50 transition-all"> Learn More </a>
+       </div>
+       <div class="flex items-center gap-6 mt-10 pt-8 border-t border-pink-100/50">
+        <div class="text-center">
+         <p class="text-2xl font-bold text-gray-800">50K+</p>
+         <p class="text-sm text-gray-500">Students</p>
+        </div>
+        <div class="w-px h-10 bg-pink-200"></div>
+        <div class="text-center">
+         <p class="text-2xl font-bold text-gray-800">4.9</p>
+         <p class="text-sm text-gray-500">Rating</p>
+        </div>
+        <div class="w-px h-10 bg-pink-200"></div>
+        <div class="text-center">
+         <p class="text-2xl font-bold text-gray-800">120+</p>
+         <p class="text-sm text-gray-500">Countries</p>
+        </div>
+       </div>
+      </div>
+      <div class="relative animate-fade-in delay-200">
+       <div class="relative bg-white rounded-3xl p-8 shadow-xl border border-pink-100/50">
+        <div class="bg-gradient-to-br from-pink-50 to-blue-50 rounded-2xl p-6 mb-6">
+         <div class="flex items-center gap-3 mb-4">
+          <div class="w-3 h-3 rounded-full bg-pink-400"></div>
+          <div class="w-3 h-3 rounded-full bg-yellow-400"></div>
+          <div class="w-3 h-3 rounded-full bg-green-400"></div>
+         </div>
+         <div class="space-y-4">
+          <div class="flex items-center gap-4">
+           <div class="w-12 h-12 bg-gradient-to-br from-pink-300 to-pink-400 rounded-xl flex items-center justify-center">
+            <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />
+            </svg>
+           </div>
+           <div class="flex-1">
+            <div class="h-3 bg-gray-200 rounded-full w-3/4 mb-2"></div>
+            <div class="h-2 bg-gray-100 rounded-full w-1/2"></div>
+           </div>
+          </div>
+          <div class="bg-white rounded-xl p-4 shadow-sm">
+           <div class="flex items-center justify-between mb-3"><span class="text-sm font-semibold text-gray-700">Today's Progress</span> <span class="text-sm font-bold text-pink-500">78%</span>
+           </div>
+           <div class="h-2 bg-gray-100 rounded-full overflow-hidden">
+            <div class="h-full bg-gradient-to-r from-pink-400 to-blue-400 rounded-full" style="width: 78%"></div>
+           </div>
+          </div>
+          <div class="grid grid-cols-3 gap-3">
+           <div class="bg-white rounded-xl p-3 text-center shadow-sm">
+            <p class="text-lg font-bold text-gray-800">12</p>
+            <p class="text-xs text-gray-500">Lessons</p>
+           </div>
+           <div class="bg-white rounded-xl p-3 text-center shadow-sm">
+            <p class="text-lg font-bold text-gray-800">5</p>
+            <p class="text-xs text-gray-500">Quizzes</p>
+           </div>
+           <div class="bg-white rounded-xl p-3 text-center shadow-sm">
+            <p class="text-lg font-bold text-gray-800">3h</p>
+            <p class="text-xs text-gray-500">Time</p>
+           </div>
+          </div>
+         </div>
+        </div>
+        <div class="flex items-center gap-4">
+         <div class="flex -space-x-2">
+          <div class="w-8 h-8 rounded-full bg-pink-300 border-2 border-white flex items-center justify-center text-xs">
+           👧
+          </div>
+          <div class="w-8 h-8 rounded-full bg-blue-300 border-2 border-white flex items-center justify-center text-xs">
+           👦
+          </div>
+          <div class="w-8 h-8 rounded-full bg-purple-300 border-2 border-white flex items-center justify-center text-xs">
+           👩
+          </div>
+         </div>
+         <p class="text-sm text-gray-500">Join thousands of happy learners!</p>
+        </div>
+       </div>
+       <div class="absolute -top-4 -right-4 bg-white rounded-2xl p-4 shadow-lg animate-float border border-pink-100">
+        <div class="flex items-center gap-2"><span class="text-2xl">🎯</span>
+         <div>
+          <p class="text-sm font-semibold text-gray-800">Goal Achieved!</p>
+          <p class="text-xs text-gray-500">Math Quiz Complete</p>
+         </div>
+        </div>
+       </div>
+       <div class="absolute -bottom-4 -left-4 bg-white rounded-2xl p-4 shadow-lg animate-float delay-300 border border-blue-100" style="animation-delay: 1s;">
+        <div class="flex items-center gap-2"><span class="text-2xl">⭐</span>
+         <div>
+          <p class="text-sm font-semibold text-gray-800">New Badge!</p>
+          <p class="text-xs text-gray-500">Science Explorer</p>
+         </div>
+        </div>
+       </div>
+      </div>
+     </div>
+    </div>
+   </section><!-- About Section -->
+   <section id="about" class="py-20 bg-white/50">
+    <div class="max-w-6xl mx-auto px-6">
+     <div class="text-center mb-16 animate-fade-in"><span class="inline-block px-4 py-1.5 bg-pink-100 text-pink-600 rounded-full text-sm font-medium mb-4">About SmartStudy</span>
+      <h2 id="about-title" class="font-heading text-3xl md:text-4xl font-bold text-gray-800 mb-4">About the App</h2>
+      <p class="text-gray-600 max-w-2xl mx-auto text-lg">SmartStudy is an educational app created to support students aged 10–18 in developing better study habits in a calm and motivating way.</p>
+     </div>
+     <div class="grid md:grid-cols-2 gap-12 items-center">
+      <div class="space-y-6 animate-fade-in delay-100">
+       <div class="flex gap-4 p-5 bg-white rounded-2xl shadow-sm border border-pink-50 hover:border-pink-200 transition-all">
+        <div class="w-12 h-12 bg-gradient-to-br from-pink-100 to-pink-200 rounded-xl flex items-center justify-center flex-shrink-0">
+         <svg class="w-6 h-6 text-pink-600" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z" />
+         </svg>
+        </div>
+        <div>
+         <h3 class="font-heading text-xl font-semibold text-gray-800 mb-2">Reduces Academic Stress</h3>
+         <p class="text-gray-600">Designed with students in mind to reduce exam anxiety and promote positive study habits.</p>
+        </div>
+       </div>
+       <div class="flex gap-4 p-5 bg-white rounded-2xl shadow-sm border border-blue-50 hover:border-blue-200 transition-all">
+        <div class="w-12 h-12 bg-gradient-to-br from-blue-100 to-blue-200 rounded-xl flex items-center justify-center flex-shrink-0">
+         <svg class="w-6 h-6 text-blue-600" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9" />
+         </svg>
+        </div>
+        <div>
+         <h3 class="font-heading text-xl font-semibold text-gray-800 mb-2">Calm &amp; Motivating</h3>
+         <p class="text-gray-600">Combines simple quizzes, daily study tips, and positive encouragement in a supportive space.</p>
+        </div>
+       </div>
+       <div class="flex gap-4 p-5 bg-white rounded-2xl shadow-sm border border-pink-50 hover:border-pink-200 transition-all">
+        <div class="w-12 h-12 bg-gradient-to-br from-purple-100 to-purple-200 rounded-xl flex items-center justify-center flex-shrink-0">
+         <svg class="w-6 h-6 text-purple-600" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
+         </svg>
+        </div>
+        <div>
+         <h3 class="font-heading text-xl font-semibold text-gray-800 mb-2">Own-Pace Learning</h3>
+         <p class="text-gray-600">Students can learn at their own pace without pressure, building confidence and self-belief.</p>
+        </div>
+       </div>
+      </div>
+      <div class="relative animate-fade-in delay-200">
+       <div class="bg-gradient-to-br from-pink-50 via-white to-blue-50 rounded-3xl p-8 border border-pink-100/50">
+        <div class="text-center mb-8">
+         <div class="inline-flex items-center justify-center w-20 h-20 bg-gradient-to-br from-pink-300 to-blue-300 rounded-full mb-4">
+          <svg class="w-10 h-10 text-white" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />
+          </svg>
+         </div>
+         <h3 class="font-heading text-2xl font-bold text-gray-800 mb-2">Our Focus</h3>
+         <p class="text-gray-600 italic">"Progress is more important than perfection."</p>
+        </div>
+        <div class="grid grid-cols-2 gap-4">
+         <div class="bg-white/80 rounded-xl p-4 text-center"><span class="text-3xl mb-2 block">📚</span>
+          <p class="text-sm font-medium text-gray-700">Better Habits</p>
+         </div>
+         <div class="bg-white/80 rounded-xl p-4 text-center"><span class="text-3xl mb-2 block">🧠</span>
+          <p class="text-sm font-medium text-gray-700">Less Stress</p>
+         </div>
+         <div class="bg-white/80 rounded-xl p-4 text-center"><span class="text-3xl mb-2 block">💪</span>
+          <p class="text-sm font-medium text-gray-700">More Confidence</p>
+         </div>
+         <div class="bg-white/80 rounded-xl p-4 text-center"><span class="text-3xl mb-2 block">✨</span>
+          <p class="text-sm font-medium text-gray-700">Personal Growth</p>
+         </div>
+        </div>
+       </div>
+      </div>
+     </div>
+    </div>
+   </section><!-- Features Section -->
+   <section id="features" class="py-20">
+    <div class="max-w-6xl mx-auto px-6">
+     <div class="text-center mb-16 animate-fade-in"><span class="inline-block px-4 py-1.5 bg-blue-100 text-blue-600 rounded-full text-sm font-medium mb-4">How It Was Created</span>
+      <h2 class="font-heading text-3xl md:text-4xl font-bold text-gray-800 mb-4">Design Process &amp; Tools</h2>
+      <p class="text-gray-600 max-w-2xl mx-auto text-lg">SmartStudy was built using no-code tools focused on accessibility, creativity, and user experience.</p>
+     </div>
+     <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6"><!-- Feature 1 -->
+      <div class="feature-card bg-white rounded-2xl p-6 card-shadow border border-pink-50">
+       <div class="icon-container w-14 h-14 bg-gradient-to-br from-pink-100 to-pink-200 rounded-xl flex items-center justify-center mb-5">
+        <svg class="w-7 h-7 text-pink-600" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" />
+        </svg>
+       </div>
+       <h3 class="font-heading text-xl font-semibold text-gray-800 mb-3">Research &amp; Planning</h3>
+       <p class="text-gray-600 leading-relaxed">Identified student challenges: lack of motivation, poor time management, and exam stress. Focused on creating supportive solutions.</p>
+      </div><!-- Feature 2 -->
+      <div class="feature-card bg-white rounded-2xl p-6 card-shadow border border-blue-50">
+       <div class="icon-container w-14 h-14 bg-gradient-to-br from-blue-100 to-blue-200 rounded-xl flex items-center justify-center mb-5">
+        <svg class="w-7 h-7 text-blue-600" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 21a4 4 0 01-4-4V5a2 2 0 012-2h4a2 2 0 012 2v12a4 4 0 01-4 4zm0 0h12a2 2 0 002-2v-4a2 2 0 00-2-2h-2.343M11 7.343l1.657-1.657a2 2 0 012.828 0l2.829 2.829a2 2 0 010 2.828l-8.486 8.485M7 17h.01" />
+        </svg>
+       </div>
+       <h3 class="font-heading text-xl font-semibold text-gray-800 mb-3">No-Code Tools</h3>
+       <p class="text-gray-600 leading-relaxed">Used Canva for design, Google Forms for quizzes &amp; feedback, and Zoho App Creator for structure.</p>
+      </div><!-- Feature 3 -->
+      <div class="feature-card bg-white rounded-2xl p-6 card-shadow border border-purple-50">
+       <div class="icon-container w-14 h-14 bg-gradient-to-br from-purple-100 to-purple-200 rounded-xl flex items-center justify-center mb-5">
+        <svg class="w-7 h-7 text-purple-600" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14.828 14.828a4 4 0 01-5.656 0M9 10h.01M15 10h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+        </svg>
+       </div>
+       <h3 class="font-heading text-xl font-semibold text-gray-800 mb-3">Focus on Creativity</h3>
+       <p class="text-gray-600 leading-relaxed">Focused on creativity, planning, and impact rather than complex programming to reach students effectively.</p>
+      </div><!-- Feature 4 -->
+      <div class="feature-card bg-white rounded-2xl p-6 card-shadow border border-green-50">
+       <div class="icon-container w-14 h-14 bg-gradient-to-br from-green-100 to-green-200 rounded-xl flex items-center justify-center mb-5">
+        <svg class="w-7 h-7 text-green-600" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
+        </svg>
+       </div>
+       <h3 class="font-heading text-xl font-semibold text-gray-800 mb-3">Positive Encouragement</h3>
+       <p class="text-gray-600 leading-relaxed">Daily study tips, daily motivation, and positive messages support students emotionally and academically.</p>
+      </div><!-- Feature 5 -->
+      <div class="feature-card bg-white rounded-2xl p-6 card-shadow border border-orange-50">
+       <div class="icon-container w-14 h-14 bg-gradient-to-br from-orange-100 to-orange-200 rounded-xl flex items-center justify-center mb-5">
+        <svg class="w-7 h-7 text-orange-600" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+        </svg>
+       </div>
+       <h3 class="font-heading text-xl font-semibold text-gray-800 mb-3">User Testing &amp; Feedback</h3>
+       <p class="text-gray-600 leading-relaxed">Collected real user feedback to measure impact and ensure the app meets its goal of lifting students up.</p>
+      </div><!-- Feature 6 -->
+      <div class="feature-card bg-white rounded-2xl p-6 card-shadow border border-pink-50">
+       <div class="icon-container w-14 h-14 bg-gradient-to-br from-pink-100 to-blue-100 rounded-xl flex items-center justify-center mb-5">
+        <svg class="w-7 h-7 text-pink-600" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6V4m0 2a2 2 0 100 4m0-4a2 2 0 110 4m-6 8a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4m6 6v10m6-2a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4" />
+        </svg>
+       </div>
+       <h3 class="font-heading text-xl font-semibold text-gray-800 mb-3">Adaptability &amp; Growth</h3>
+       <p class="text-gray-600 leading-relaxed">Developed problem-solving skills and learned to choose tools that match ability for positive impact.</p>
+      </div>
+     </div>
+    </div>
+   </section><!-- Impact Section -->
+   <section id="impact" class="py-20 bg-gradient-to-br from-pink-50 via-white to-blue-50">
+    <div class="max-w-6xl mx-auto px-6">
+     <div class="text-center mb-16 animate-fade-in"><span class="inline-block px-4 py-1.5 bg-pink-100 text-pink-600 rounded-full text-sm font-medium mb-4">Impact &amp; Values</span>
+      <h2 class="font-heading text-3xl md:text-4xl font-bold text-gray-800 mb-4">How SmartStudy Lifts Others Up</h2>
+      <p class="text-gray-600 max-w-2xl mx-auto text-lg">Supporting students academically and emotionally through encouragement and positive study habits.</p>
+     </div>
+     <div class="grid md:grid-cols-2 gap-8 mb-12">
+      <div class="bg-white rounded-3xl p-8 card-shadow border border-pink-100/50">
+       <div class="flex items-center gap-4 mb-6">
+        <div class="w-16 h-16 bg-gradient-to-br from-pink-200 to-pink-300 rounded-full flex items-center justify-center"><span class="text-3xl">🤍</span>
+        </div>
+        <div>
+         <h3 class="font-heading text-xl font-bold text-gray-800">Emotional Support</h3>
+         <p class="text-gray-500">Building confident learners</p>
+        </div>
+       </div>
+       <ul class="space-y-4">
+        <li class="flex items-start gap-3">
+         <div class="w-6 h-6 bg-pink-100 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
+          <svg class="w-4 h-4 text-pink-600" fill="currentColor" viewbox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
+          </svg>
+         </div><p class="text-gray-600">Provides encouragement and daily study tips to reduce stress</p></li>
+        <li class="flex items-start gap-3">
+         <div class="w-6 h-6 bg-pink-100 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
+          <svg class="w-4 h-4 text-pink-600" fill="currentColor" viewbox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
+          </svg>
+         </div><p class="text-gray-600">Calm design and supportive messages build self-belief</p></li>
+        <li class="flex items-start gap-3">
+         <div class="w-6 h-6 bg-pink-100 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
+          <svg class="w-4 h-4 text-pink-600" fill="currentColor" viewbox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
+          </svg>
+         </div><p class="text-gray-600">Reminds students that progress matters more than perfection</p></li>
+       </ul>
+      </div>
+      <div class="bg-white rounded-3xl p-8 card-shadow border border-blue-100/50">
+       <div class="flex items-center gap-4 mb-6">
+        <div class="w-16 h-16 bg-gradient-to-br from-blue-200 to-blue-300 rounded-full flex items-center justify-center"><span class="text-3xl">📚</span>
+        </div>
+        <div>
+         <h3 class="font-heading text-xl font-bold text-gray-800">Academic Support</h3>
+         <p class="text-gray-500">Empowering learners</p>
+        </div>
+       </div>
+       <ul class="space-y-4">
+        <li class="flex items-start gap-3">
+         <div class="w-6 h-6 bg-blue-100 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
+          <svg class="w-4 h-4 text-blue-600" fill="currentColor" viewbox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
+          </svg>
+         </div><p class="text-gray-600">Simple quizzes help students practice and test understanding</p></li>
+        <li class="flex items-start gap-3">
+         <div class="w-6 h-6 bg-blue-100 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
+          <svg class="w-4 h-4 text-blue-600" fill="currentColor" viewbox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
+          </svg>
+         </div><p class="text-gray-600">Daily study tips promote positive, sustainable habits</p></li>
+        <li class="flex items-start gap-3">
+         <div class="w-6 h-6 bg-blue-100 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
+          <svg class="w-4 h-4 text-blue-600" fill="currentColor" viewbox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
+          </svg>
+         </div><p class="text-gray-600">Helps students take control of their own education</p></li>
+       </ul>
+      </div>
+     </div><!-- Impact Stats -->
+     <div class="bg-white rounded-3xl p-8 card-shadow border border-pink-100/30">
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
+       <div class="p-4">
+        <div class="text-4xl font-bold text-pink-500 mb-2">
+         10-18
+        </div>
+        <p class="text-gray-600 font-medium">Target Age Group</p>
+        <p class="text-sm text-gray-400">Students reached</p>
+       </div>
+       <div class="p-4">
+        <div class="text-4xl font-bold text-blue-500 mb-2">
+         90%
+        </div>
+        <p class="text-gray-600 font-medium">Positive Feedback</p>
+        <p class="text-sm text-gray-400">User satisfaction</p>
+       </div>
+       <div class="p-4">
+        <div class="text-4xl font-bold text-purple-500 mb-2">
+         📱
+        </div>
+        <p class="text-gray-600 font-medium">No-Code Built</p>
+        <p class="text-sm text-gray-400">Accessible design</p>
+       </div>
+       <div class="p-4">
+        <div class="text-4xl font-bold text-green-500 mb-2">
+         ✨
+        </div>
+        <p class="text-gray-600 font-medium">Impact-Focused</p>
+        <p class="text-sm text-gray-400">Empowerment first</p>
+       </div>
+      </div>
+     </div>
+    </div>
+   </section><!-- Feedback Section -->
+   <section id="feedback" class="py-20 bg-white/50">
+    <div class="max-w-6xl mx-auto px-6">
+     <div class="text-center mb-16 animate-fade-in"><span class="inline-block px-4 py-1.5 bg-blue-100 text-blue-600 rounded-full text-sm font-medium mb-4">Learning &amp; Reflection</span>
+      <h2 class="font-heading text-3xl md:text-4xl font-bold text-gray-800 mb-4">What I Learned &amp; My Reflection</h2>
+      <p class="text-gray-600 max-w-2xl mx-auto text-lg">Through this project, I developed valuable skills and insights about technology, design, and impact.</p>
+     </div>
+     <div class="grid md:grid-cols-2 gap-8"><!-- Learning Card -->
+      <div class="testimonial-card bg-white rounded-2xl p-6 card-shadow border border-pink-100/50">
+       <div class="flex items-start gap-3 mb-4"><span class="text-3xl flex-shrink-0">🌱</span>
+        <div>
+         <h3 class="font-heading text-xl font-bold text-gray-800">What I Learned</h3>
+        </div>
+       </div>
+       <p class="text-gray-600 leading-relaxed mb-4">Through this project, I learned how apps are planned, designed, and presented to real users. I developed research, thinking, and self-management skills while adapting my approach when facing challenges.</p>
+       <p class="text-gray-600 leading-relaxed">I also learned that choosing tools that match my abilities is an important part of problem-solving. This project helped me grow as a learner and showed me how technology can be used to make a positive difference.</p>
+      </div><!-- Reflection Card -->
+      <div class="testimonial-card bg-gradient-to-br from-pink-50 to-blue-50 rounded-2xl p-6 card-shadow border border-pink-200/50">
+       <div class="flex items-start gap-3 mb-4"><span class="text-3xl flex-shrink-0">✨</span>
+        <div>
+         <h3 class="font-heading text-xl font-bold text-gray-800">Final Reflection</h3>
+        </div>
+       </div>
+       <p class="text-gray-600 leading-relaxed mb-4">SmartStudy demonstrates that technology can be a powerful tool for empowering individuals and communities. By lifting others up through education, encouragement, and accessibility, we create stronger and more confident learners.</p>
+       <p class="text-gray-600 leading-relaxed italic font-semibold">Innovation is not only about advanced technology, but also about empathy, creativity, and meaningful impact.</p>
+      </div>
+     </div>
+    </div>
+   </section><!-- Contact Section -->
+   <section id="contact" class="py-20">
+    <div class="max-w-6xl mx-auto px-6">
+     <div class="text-center mb-16 animate-fade-in"><span class="inline-block px-4 py-1.5 bg-pink-100 text-pink-600 rounded-full text-sm font-medium mb-4">Get in Touch</span>
+      <h2 class="font-heading text-3xl md:text-4xl font-bold text-gray-800 mb-4">Questions? Let's Connect</h2>
+      <p class="text-gray-600 max-w-2xl mx-auto text-lg">Interested in SmartStudy or want to share your feedback? We'd love to hear from you.</p>
+     </div>
+     <div class="grid md:grid-cols-2 gap-8">
+      <div class="bg-white rounded-3xl p-8 card-shadow border border-pink-100/50">
+       <h3 class="font-heading text-xl font-bold text-gray-800 mb-6">Send a Message</h3>
+       <form id="contact-form" class="space-y-5">
+        <div><label for="name" class="block text-sm font-medium text-gray-700 mb-2">Your Name</label> <input type="text" id="name" name="name" placeholder="Enter your name" class="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-pink-300 focus:ring focus:ring-pink-100 outline-none transition-all">
+        </div>
+        <div><label for="email" class="block text-sm font-medium text-gray-700 mb-2">Email Address</label> <input type="email" id="email" name="email" placeholder="Enter your email" class="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-pink-300 focus:ring focus:ring-pink-100 outline-none transition-all">
+        </div>
+        <div><label for="message" class="block text-sm font-medium text-gray-700 mb-2">Message</label> <textarea id="message" name="message" rows="4" placeholder="What would you like to say?" class="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-pink-300 focus:ring focus:ring-pink-100 outline-none transition-all resize-none"></textarea>
+        </div><button type="submit" class="w-full py-3 bg-gradient-to-r from-pink-400 to-pink-500 text-white rounded-xl font-semibold hover:from-pink-500 hover:to-pink-600 transition-all shadow-md hover:shadow-lg"> Send Message </button>
+       </form>
+       <p id="form-success" class="hidden mt-4 text-center text-green-600 font-medium">✓ Thank you! We'll get back to you soon.</p>
+      </div>
+      <div class="space-y-6">
+       <div class="bg-gradient-to-br from-pink-50 to-blue-50 rounded-3xl p-8 border border-pink-100/50">
+        <h3 class="font-heading text-xl font-bold text-gray-800 mb-6">About This Project</h3>
+        <div class="space-y-4 text-gray-600 leading-relaxed">
+         <p><strong>Created for:</strong> School Exhibition &amp; Portfolio</p>
+         <p><strong>Tools Used:</strong> Canva, Google Forms, Zoho App Creator</p>
+         <p><strong>Impact Measured:</strong> User feedback &amp; positive response</p>
+         <p><strong>Learning Focus:</strong> Design thinking, user research, problem-solving</p>
+        </div>
+       </div>
+       <div class="bg-white rounded-3xl p-8 card-shadow border border-pink-100/50">
+        <h3 class="font-heading text-xl font-bold text-gray-800 mb-4">Contact Information</h3>
+        <div class="space-y-3">
+         <div class="flex items-center gap-3">
+          <svg class="w-5 h-5 text-pink-500" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+          </svg>
+          <p id="contact-email" class="text-gray-600">Icekatengo@gmail.com</p>
+         </div>
+        </div>
+       </div>
+      </div>
+     </div>
+    </div>
+   </section><!-- Footer -->
+   <footer class="bg-white border-t border-pink-100">
+    <div class="max-w-6xl mx-auto px-6 py-12">
+     <div class="text-center">
+      <div class="flex items-center justify-center gap-3 mb-4">
+       <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-pink-200 to-blue-200 flex items-center justify-center">
+        <svg class="w-6 h-6 text-pink-600" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
+        </svg>
+       </div><span class="font-heading text-xl font-semibold text-gray-800">SmartStudy</span>
+      </div>
+      <p class="text-gray-600 mb-4">Empowering students to learn smarter, with calm support and positive encouragement.</p>
+      <p class="text-gray-500 text-sm">© 2024 SmartStudy. Made with 💖 for student success and well-being.</p>
+     </div>
+    </div>
+   </footer>
+  </div>
+  <script>
+    const defaultConfig = {
+      hero_title: "Learn Smarter, Grow Together",
+      hero_subtitle: "SmartStudy is an educational app created to support students aged 10–18 in developing better study habits in a calm and motivating way.",
+      about_title: "About the App",
+      contact_email: "Icekatengo@gmail.com"
+    };
+
+    let config = { ...defaultConfig };
+
+    if (window.elementSdk) {
+      window.elementSdk.init({
+        defaultConfig,
+        onConfigChange: async (newConfig) => {
+          config = { ...config, ...newConfig };
+          
+          const heroTitle = document.getElementById('hero-title');
+          if (heroTitle) {
+            const title = config.hero_title || defaultConfig.hero_title;
+            heroTitle.innerHTML = title.includes(',') 
+              ? `${title.split(',')[0]},<br><span class="bg-gradient-to-r from-pink-500 to-blue-400 bg-clip-text text-transparent">${title.split(',')[1] || 'Grow Together'}</span>`
+              : title;
+          }
+          
+          const heroSubtitle = document.getElementById('hero-subtitle');
+          if (heroSubtitle) {
+            heroSubtitle.textContent = config.hero_subtitle || defaultConfig.hero_subtitle;
+          }
+          
+          const aboutTitle = document.getElementById('about-title');
+          if (aboutTitle) {
+            aboutTitle.textContent = config.about_title || defaultConfig.about_title;
+          }
+          
+          const contactEmail = document.getElementById('contact-email');
+          if (contactEmail) {
+            contactEmail.textContent = config.contact_email || defaultConfig.contact_email;
+          }
+        },
+        mapToCapabilities: (cfg) => ({
+          recolorables: [],
+          borderables: [],
+          fontEditable: undefined,
+          fontSizeable: undefined
+        }),
+        mapToEditPanelValues: (cfg) => new Map([
+          ["hero_title", cfg.hero_title || defaultConfig.hero_title],
+          ["hero_subtitle", cfg.hero_subtitle || defaultConfig.hero_subtitle],
+          ["about_title", cfg.about_title || defaultConfig.about_title],
+          ["contact_email", cfg.contact_email || defaultConfig.contact_email]
+        ])
+      });
+    }
+
+    const contactForm = document.getElementById('contact-form');
+    const formSuccess = document.getElementById('form-success');
+    
+    contactForm.addEventListener('submit', function(e) {
+      e.preventDefault();
+      
+      const submitBtn = contactForm.querySelector('button[type="submit"]');
+      submitBtn.textContent = 'Sending...';
+      submitBtn.disabled = true;
+      
+      setTimeout(() => {
+        contactForm.reset();
+        formSuccess.classList.remove('hidden');
+        submitBtn.textContent = 'Send Message';
+        submitBtn.disabled = false;
+        
+        setTimeout(() => {
+          formSuccess.classList.add('hidden');
+        }, 5000);
+      }, 1500);
+    });
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function(e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+          target.scrollIntoView({
+            behavior: 'smooth',
+            block: 'start'
+          });
+        }
+      });
+    });
+
+    const observerOptions = {
+      threshold: 0.1,
+      rootMargin: '0px 0px -50px 0px'
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.style.opacity = '1';
+          entry.target.style.transform = 'translateY(0)';
+        }
+      });
+    }, observerOptions);
+
+    document.querySelectorAll('.animate-fade-in').forEach(el => {
+      el.style.opacity = '0';
+      el.style.transform = 'translateY(20px)';
+      el.style.transition = 'opacity 0.6s ease-out, transform 0.6s ease-out';
+      observer.observe(el);
+    });
+  </script>
+ <script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'9c5fcfac077706e3',t:'MTc2OTc2Mzk2NS4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+</html>
